@@ -3,6 +3,7 @@ from .models import BlogPost
 from .serializers import BlogPostSerializer
 from django.db.models import Q
 from .permissions import IsOwnerOrReadOnly
+from django.http import HttpResponse
 
 
 class BlogPostApiView(mixins.CreateModelMixin, generics.ListAPIView):
@@ -38,3 +39,7 @@ class BlogPostRudView(generics.RetrieveUpdateDestroyAPIView):
     # def get_object(self):
     #     pk = self.kwargs.get('pk')
     #     return BlogPost.objects.get(pk=pk)
+
+
+def getData(request):
+    return HttpResponse(request)
